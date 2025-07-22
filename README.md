@@ -22,4 +22,5 @@ Styling: Tailwind CSS / CSS Modules / SCSS (customise based on your project)
 
 State Management: React Hooks & Context
 
-
+ Website Preview in
+/public/screenshot
