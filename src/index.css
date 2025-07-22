@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* F1 Racing Inspired Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@layer base {
+  :root {
+    /* F1 Racing Color Palette - Exact HEX Specifications */
+    --background: 0 0% 7%;           /* Carbon Black #121212 */
+    --foreground: 0 0% 100%;         /* White #FFFFFF */
+
+    --card: 0 0% 12%;                /* Charcoal Grey #1E1E1E */
+    --card-foreground: 0 0% 100%;    /* White #FFFFFF */
+
+    --popover: 0 0% 12%;             /* Charcoal Grey #1E1E1E */
+    --popover-foreground: 0 0% 100%; /* White #FFFFFF */
+
+    /* Crimson Red Primary */
+    --primary: 4 100% 44%;           /* Crimson Red #E10600 */
+    --primary-foreground: 0 0% 100%; /* White #FFFFFF */
+    --primary-glow: 4 100% 55%;      /* Lighter Crimson for glow effects */
+
+    /* Carbon Secondary */
+    --secondary: 0 0% 15%;           /* Darker Charcoal */
+    --secondary-foreground: 0 0% 100%; /* White #FFFFFF */
+
+    --muted: 0 0% 20%;               /* Muted Carbon */
+    --muted-foreground: 0 0% 63%;    /* Cool Grey #A0A0A0 */
+
+    /* Racing Yellow Accent */
+    --accent: 51 100% 50%;           /* Racing Yellow #FFD700 */
+    --accent-foreground: 0 0% 7%;    /* Carbon Black for contrast */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;              /* Subtle border in carbon theme */
+    --input: 0 0% 15%;               /* Input background */
+    --ring: 4 100% 44%;              /* Primary red for focus rings */
+
+    --radius: 0.75rem;
+
+    /* F1 Design System Extensions */
+    --racing-red: 4 100% 44%;        /* Crimson Red #E10600 */
+    --carbon-black: 0 0% 7%;         /* Carbon Black #121212 */
+    --carbon-gray: 0 0% 12%;         /* Charcoal Grey #1E1E1E */
+    --racing-yellow: 51 100% 50%;    /* Racing Yellow #FFD700 */
+    --cool-gray: 0 0% 63%;           /* Cool Grey #A0A0A0 */
+    --pure-white: 0 0% 100%;         /* White #FFFFFF */
+
+    /* Racing Gradients */
+    --gradient-racing: linear-gradient(135deg, hsl(4, 100%, 44%), hsl(4, 100%, 55%));
+    --gradient-carbon: linear-gradient(135deg, hsl(0, 0%, 7%), hsl(0, 0%, 12%));
+    --gradient-speed: linear-gradient(90deg, hsl(4, 100%, 44%), hsl(51, 100%, 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 12%) 50%, hsl(4, 100%, 44%) 100%);
+
+    /* Racing Shadows */
+    --shadow-racing: 0 10px 30px -5px hsl(4, 100%, 44%, 0.4);
+    --shadow-carbon: 0 10px 30px -5px hsl(0, 0%, 7%, 0.8);
+    --shadow-glow: 0 0 40px hsl(4, 100%, 55%, 0.5);
+    --shadow-yellow: 0 0 20px hsl(51, 100%, 50%, 0.3);
+
+    /* Animation Timings */
+    --transition-speed: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Same colors for consistency - F1 theme is already dark */
+    --background: 0 0% 7%;           /* Carbon Black #121212 */
+    --foreground: 0 0% 100%;         /* White #FFFFFF */
+
+    --card: 0 0% 12%;                /* Charcoal Grey #1E1E1E */
+    --card-foreground: 0 0% 100%;    /* White #FFFFFF */
+
+    --popover: 0 0% 12%;             /* Charcoal Grey #1E1E1E */
+    --popover-foreground: 0 0% 100%; /* White #FFFFFF */
+
+    --primary: 4 100% 44%;           /* Crimson Red #E10600 */
+    --primary-foreground: 0 0% 100%; /* White #FFFFFF */
+    --primary-glow: 4 100% 55%;      /* Lighter Crimson for glow effects */
+
+    --secondary: 0 0% 15%;           /* Darker Charcoal */
+    --secondary-foreground: 0 0% 100%; /* White #FFFFFF */
+
+    --muted: 0 0% 20%;               /* Muted Carbon */
+    --muted-foreground: 0 0% 63%;    /* Cool Grey #A0A0A0 */
+
+    --accent: 51 100% 50%;           /* Racing Yellow #FFD700 */
+    --accent-foreground: 0 0% 7%;    /* Carbon Black for contrast */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;              /* Subtle border in carbon theme */
+    --input: 0 0% 15%;               /* Input background */
+    --ring: 4 100% 44%;              /* Primary red for focus rings */
+
+    /* Update F1 colors to match exact specifications */
+    --racing-red: 4 100% 44%;        /* Crimson Red #E10600 */
+    --carbon-black: 0 0% 7%;         /* Carbon Black #121212 */
+    --carbon-gray: 0 0% 12%;         /* Charcoal Grey #1E1E1E */
+    --racing-yellow: 51 100% 50%;    /* Racing Yellow #FFD700 */
+    --cool-gray: 0 0% 63%;           /* Cool Grey #A0A0A0 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Typography Hierarchy */
+  .font-racing-logo {
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .font-racing-heading {
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .font-racing-subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-racing-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  /* Enhanced Navbar with Racing Theme */
+  .navbar-glass {
+    @apply bg-racing-carbon/90 backdrop-blur-md border-b border-racing-gray/50;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-glass.scrolled {
+    @apply bg-racing-carbon/95 backdrop-blur-lg shadow-lg border-racing-gray;
+    box-shadow: 0 4px 20px hsl(4, 100%, 44%, 0.2);
+  }
+
+  /* Racing Button Variants with Crimson Red Theme */
+  .btn-racing {
+    background: linear-gradient(135deg, hsl(4, 100%, 44%), hsl(4, 100%, 50%));
+    @apply text-white font-semibold px-6 py-3 rounded-lg 
+           transition-all duration-200 hover:scale-105;
+    opacity: 0;
+    animation: speed-fade-in 200ms ease-out forwards;
+    box-shadow: 0 4px 15px hsl(4, 100%, 44%, 0.3);
+  }
+
+  .btn-racing:hover {
+    box-shadow: 0 8px 25px hsl(4, 100%, 44%, 0.5);
+    background: linear-gradient(135deg, hsl(4, 100%, 50%), hsl(4, 100%, 55%));
+  }
+
+  .btn-carbon {
+    background: linear-gradient(135deg, hsl(0, 0%, 7%), hsl(0, 0%, 12%));
+    @apply text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 hover:scale-105;
+    opacity: 0;
+    animation: speed-fade-in 200ms ease-out forwards;
+    box-shadow: 0 4px 15px hsl(0, 0%, 0%, 0.6);
+  }
+
+  .btn-speed {
+    background: linear-gradient(90deg, hsl(4, 100%, 44%), hsl(51, 100%, 50%));
+    @apply text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 hover:scale-105;
+    opacity: 0;
+    animation: speed-fade-in 200ms ease-out forwards;
+    box-shadow: 0 4px 15px hsl(51, 100%, 50%, 0.4);
+  }
+
+  /* Category Cards with Scale + Border Glow */
+  .category-card {
+    @apply transition-all duration-300 cursor-pointer relative overflow-hidden;
+    border: 2px solid transparent;
+  }
+
+  .category-card:hover {
+    @apply scale-105;
+    border-color: hsl(var(--primary));
+    box-shadow: 
+      0 0 0 1px hsl(var(--primary) / 0.3),
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 10px 30px -5px hsl(var(--primary) / 0.2);
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .category-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Image Fade-in on Scroll */
+  .image-fade-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-fade-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Racing Grid Pattern */
+  .racing-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Checkered Pattern */
+  .checkered-pattern {
+    background-image: 
+      repeating-conic-gradient(
+        hsl(var(--checkered-light)) 0% 25%, 
+        hsl(var(--muted)) 0% 50%
+      );
+    background-size: 20px 20px;
+  }
+
+  /* Speed Lines Animation */
+  .speed-lines {
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 98px,
+      hsl(var(--primary) / 0.1) 100px
+    );
+    animation: speed-lines 2s linear infinite;
+  }
+
+  /* Racing Card Hover */
+  .racing-card {
+    @apply transition-all duration-200 hover:scale-[1.02] 
+           hover:shadow-[var(--shadow-carbon)] cursor-pointer;
+  }
+
+  /* Hero Text Letter Animation */
+  .hero-text-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    animation: letter-drop 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Enhanced Product Card Hover Effects */
+  .product-card {
+    @apply transition-all duration-300 cursor-pointer relative overflow-hidden;
+    border: 1px solid hsl(var(--border));
+  }
+
+  .product-card:hover {
+    @apply scale-[1.03];
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.3),
+      0 10px 40px -10px hsl(var(--primary) / 0.2);
+  }
+
+  .product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .product-card:hover::after {
+    left: 100%;
+  }
+}
+
+@layer utilities {
+  /* Enhanced Racing Animations */
+  @keyframes speed-lines {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 0; }
+  }
+
+  @keyframes racing-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 0 0 hsl(var(--racing-red) / 0.4); 
+    }
+    50% { 
+      box-shadow: 0 0 0 10px hsl(var(--racing-red) / 0); 
+    }
+  }
+
+  @keyframes checkered-flag {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+  }
+
+  /* Speed Fade-in Animation */
+  @keyframes speed-fade-in {
+    0% { 
+      opacity: 0; 
+      transform: translateY(10px) scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  /* Letter Drop Animation for Hero Text */
+  @keyframes letter-drop {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) rotateX(90deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(10px) rotateX(45deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+
+  /* Scroll Fade Animation */
+  @keyframes scroll-fade {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glow Border Animation */
+  @keyframes glow-border {
+    0% {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.4);
+    }
+    100% {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  /* Animation Classes */
+  .animate-speed-lines { animation: speed-lines 2s linear infinite; }
+  .animate-racing-pulse { animation: racing-pulse 2s ease-in-out infinite; }
+  .animate-checkered { animation: checkered-flag 3s ease-in-out infinite; }
+  .animate-speed-fade-in { animation: speed-fade-in 200ms ease-out forwards; }
+  .animate-letter-drop { animation: letter-drop 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  .animate-scroll-fade { animation: scroll-fade 0.6s ease-out forwards; }
+  .animate-glow-border { animation: glow-border 2s ease-in-out infinite; }
+
+  /* Animation Delays for Letter-by-Letter Effect */
+  .delay-0 { animation-delay: 0ms; }
+  .delay-75 { animation-delay: 75ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-225 { animation-delay: 225ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-375 { animation-delay: 375ms; }
+  .delay-450 { animation-delay: 450ms; }
+  .delay-525 { animation-delay: 525ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-675 { animation-delay: 675ms; }
+  .delay-750 { animation-delay: 750ms; }
+}
